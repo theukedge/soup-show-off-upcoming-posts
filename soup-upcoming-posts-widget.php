@@ -48,7 +48,6 @@ class soup_widget extends WP_Widget {
 		$postorder	= $instance['post_order']; // Display newest first or random order
 		$shownews 	= isset($instance['show_newsletter']) ? $instance['show_newsletter'] : false ; // whether or not to show the newsletter link
 		$newsletterurl 	= $instance['newsletter_url']; // URL of newsletter signup
-		$authorcredit	= isset($instance['author_credit']) ? $instance['author_credit'] : false ; // give plugin author credit
 		$noresults	= $instance['no_results']; // Message for when there are no posts to display
 
 	// Before widget //
@@ -91,12 +90,6 @@ class soup_widget extends WP_Widget {
 		<p>
 			<?php _e('Or, just', 'soup'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a></strong>!
 		</p>
-		<?php } ?>
-
-		<?php if ($authorcredit) { ?>
-		<p style="font-size:10px;">
-			<?php _e('Widget created by', 'soup'); ?> <a href="http://www.doitwithwp.com" title="WordPress Tutorials" rel="external nofollow">Dave Clements</a>
-		</p>
 		<?php }
 
 	// After widget //
@@ -115,7 +108,6 @@ class soup_widget extends WP_Widget {
 		$instance['post_order'] = strip_tags($new_instance['post_order']);
 		$instance['show_newsletter'] = strip_tags($new_instance['show_newsletter']);
 		$instance['newsletter_url'] = strip_tags($new_instance['newsletter_url'],'<a>');
-		$instance['author_credit'] = strip_tags($new_instance['author_credit']);
 		$instance['no_results'] = strip_tags($new_instance['no_results']);
 		return $instance;
 	}
@@ -169,10 +161,6 @@ class soup_widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('newsletter_url'); ?>"><?php _e('Newsletter URL', 'soup'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('newsletter_url'); ?>" name="<?php echo $this->get_field_name('newsletter_url'); ?>" type="text" value="<?php echo $instance['newsletter_url']; ?>" />
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('author_credit'); ?>"><?php _e('Give credit to plugin author', 'soup'); ?>?</label>
-			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['author_credit'])); ?> id="<?php echo $this->get_field_id('author_credit'); ?>" name="<?php echo $this->get_field_name('author_credit'); ?>" />
 		</p>
     <?php }
 
