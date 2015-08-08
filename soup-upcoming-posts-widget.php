@@ -12,7 +12,7 @@ License: GPLv2
 /*  Copyright 2011  Dave Clements  (email : https://www.theukedge.com/contact/)
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
+    it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
@@ -26,14 +26,14 @@ License: GPLv2
 */
 
 	// Start class soup_widget //
- 
+
 class soup_widget extends WP_Widget {
- 
+
 	// Constructor //
-	
+
     function soup_widget() {
     	load_plugin_textdomain('soup', false, dirname(plugin_basename(__FILE__)) . '/languages/');
-        parent::WP_Widget(false, $name = __('Upcoming Posts', 'soup'), array('description' => __('Displays your upcoming posts to entice your readers', 'soup')) );	
+        parent::__construct(false, $name = __('Upcoming Posts', 'soup'), array('description' => __('Displays your upcoming posts to entice your readers', 'soup')) );
     }
 
 	// Extract Args //
@@ -52,15 +52,15 @@ class soup_widget extends WP_Widget {
 		$noresults	= $instance['no_results']; // Message for when there are no posts to display
 
 	// Before widget //
-		
+
 		echo $before_widget;
-		
+
 	// Title of widget //
-		
+
 		if ( $title ) { echo $before_title . $title . $after_title; }
-		
+
 	// Widget output //
-		
+
 		?>
 		<ul class="no-bullets">
 		<?php
@@ -77,7 +77,7 @@ class soup_widget extends WP_Widget {
 		<?php if (!$myposts) {
 			echo $noresults;
 		} ?>
-			
+
 		<?php if ($showrss) { ?>
 		<p>
 			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>">
@@ -86,7 +86,7 @@ class soup_widget extends WP_Widget {
 			<?php _e('Don\'t miss it', 'soup'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup'); ?>.</a></strong>
 		</p>
 		<?php } ?>
-		
+
 		<?php if ($shownews) { ?>
 		<p>
 			<?php _e('Or, just', 'soup'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a></strong>!
@@ -98,14 +98,14 @@ class soup_widget extends WP_Widget {
 			<?php _e('Widget created by', 'soup'); ?> <a href="http://www.doitwithwp.com" title="WordPress Tutorials" rel="external nofollow">Dave Clements</a>
 		</p>
 		<?php }
-				
+
 	// After widget //
-		
+
 		echo $after_widget;
 	}
-		
+
 	// Update Settings //
- 
+
 	function update($new_instance, $old_instance) {
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['soup_number'] = strip_tags($new_instance['soup_number']);
@@ -119,14 +119,14 @@ class soup_widget extends WP_Widget {
 		$instance['no_results'] = strip_tags($new_instance['no_results']);
 		return $instance;
 	}
- 
+
 	// Widget Control Panel //
-	
+
 	function form($instance) {
 
 		$defaults = array( 'title' => 'Upcoming Posts', 'soup_number' => 3, 'show_rss' => false, 'soup_cat' => '', 'post_type' => 'future', 'post_order' => 'date', 'show_newsletter' => false, 'newsletter_url' => '', 'author_credit' => 'on', 'no_results' => 'Sorry - nothing planned yet!' );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'soup'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>'" type="text" value="<?php echo $instance['title']; ?>" />
@@ -175,7 +175,7 @@ class soup_widget extends WP_Widget {
 			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['author_credit'])); ?> id="<?php echo $this->get_field_id('author_credit'); ?>" name="<?php echo $this->get_field_name('author_credit'); ?>" />
 		</p>
     <?php }
- 
+
 }
 
 // End class soup_widget
