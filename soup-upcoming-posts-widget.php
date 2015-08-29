@@ -143,12 +143,12 @@ class soup_widget extends WP_Widget {
 			'title' => 'Upcoming Posts',
 			'soup_number' => 3,
 			'show_date' => 'off',
-			'show_rss' => false,
+			'show_rss' => 'off',
 			'soup_cat' => '',
 			'post_status' => 'future',
 			'post_types' => 'post',
 			'post_order' => 'date',
-			'show_newsletter' => false,
+			'show_newsletter' => 'off',
 			'newsletter_url' => '',
 			'no_results' => 'Sorry - nothing planned yet!',
 		);
@@ -169,7 +169,7 @@ class soup_widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('show_rss'); ?>"><?php _e('Show RSS link', 'soup'); ?>?</label>
-			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['show_rss'])); ?> id="<?php echo $this->get_field_id('show_rss'); ?>" name="<?php echo $this->get_field_name('show_rss'); ?>" />
+			<input <?php checked( $instance['show_rss'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_rss' ); ?>" name="<?php echo $this->get_field_name( 'show_rss' ); ?>" type="checkbox" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('soup_cat'); ?>"><?php _e('Categories to include (comma separated i.e. 2,19,12 - leave blank for all categories)', 'soup'); ?></label>
@@ -200,7 +200,7 @@ class soup_widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('show_newsletter'); ?>"><?php _e('Show Newsletter', 'soup'); ?>?</label>
-			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['show_newsletter'])); ?> id="<?php echo $this->get_field_id('show_newsletter'); ?>" name="<?php echo $this->get_field_name('show_newsletter'); ?>" />
+			<input <?php checked( $instance['show_newsletter'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_newsletter' ); ?>" name="<?php echo $this->get_field_name( 'show_newsletter' ); ?>" type="checkbox" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('newsletter_url'); ?>"><?php _e('Newsletter URL', 'soup'); ?>:</label>
