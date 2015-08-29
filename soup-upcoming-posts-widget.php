@@ -53,17 +53,17 @@ class soup_widget extends WP_Widget {
 
 	function widget($args, $instance) {
 		extract( $args );
-		$title 		= apply_filters('widget_title', $instance['title']); // the widget title
-		$soupnumber 	= $instance['soup_number']; // the number of posts to show
-		$showrss 	= $instance['show_rss']; // whether or not to show the RSS feed link
-		$soup_cat 	= $instance['soup_cat']; // exclude posts from these categories
-		$poststatus 	= $instance['post_status']; // the statuses of posts to show
-		$posttypes 	= $instance['post_types']; // the type of posts to show
-		$posttypesarray = explode(',', $posttypes); // array of post types
-		$postorder	= $instance['post_order']; // Display newest first or random order
-		$shownews 	= isset($instance['show_newsletter']) ? $instance['show_newsletter'] : false ; // whether or not to show the newsletter link
-		$newsletterurl 	= $instance['newsletter_url']; // URL of newsletter signup
-		$noresults	= $instance['no_results']; // Message for when there are no posts to display
+		$title			= apply_filters('widget_title', $instance['title']); // the widget title
+		$soupnumber		= $instance['soup_number']; // the number of posts to show
+		$showrss		= $instance['show_rss']; // whether or not to show the RSS feed link
+		$soup_cat		= $instance['soup_cat']; // exclude posts from these categories
+		$poststatus		= $instance['post_status']; // the statuses of posts to show
+		$posttypes		= $instance['post_types']; // the type of posts to show
+		$posttypesarray	= explode(',', $posttypes); // array of post types
+		$postorder		= $instance['post_order']; // Display newest first or random order
+		$shownews		= isset($instance['show_newsletter']) ? $instance['show_newsletter'] : false ; // whether or not to show the newsletter link
+		$newsletterurl	= $instance['newsletter_url']; // URL of newsletter signup
+		$noresults		= $instance['no_results']; // Message for when there are no posts to display
 
 	// Before widget //
 
