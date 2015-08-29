@@ -55,6 +55,7 @@ class soup_widget extends WP_Widget {
 		extract( $args );
 		$title			= apply_filters('widget_title', $instance['title']); // the widget title
 		$soupnumber		= $instance['soup_number']; // the number of posts to show
+		$showdate		= $instance['show_date']; // whether or not to show the scheduled post date
 		$showrss		= $instance['show_rss']; // whether or not to show the RSS feed link
 		$soup_cat		= $instance['soup_cat']; // exclude posts from these categories
 		$poststatus		= $instance['post_status']; // the statuses of posts to show
@@ -83,7 +84,12 @@ class soup_widget extends WP_Widget {
 			$args = array( 'numberposts' => $soupnumber, 'no_paging' => '1', 'post_status' => $poststatus, 'order' => 'ASC', 'orderby' => $postorder, 'ignore_sticky_posts' => '1', 'category' => $soup_cat, 'post_type' => $posttypesarray );
 			$myposts = get_posts( $args );
 			foreach( $myposts as $post ) : setup_postdata($post); ?>
-				<li><?php the_title(); ?></li>
+				<li>
+					<?php the_title(); ?>
+					<?php if($showdate) {
+						echo '(' . get_the_time( get_option( 'date_format' ) ) . ')';
+					} ?>
+				</li>
 			<?php endforeach; ?>
 			<?php $post = $tmp_post; ?>
 		</ul>
@@ -117,6 +123,7 @@ class soup_widget extends WP_Widget {
 	function update($new_instance, $old_instance) {
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['soup_number'] = strip_tags($new_instance['soup_number']);
+		$instance['show_date'] = strip_tags($new_instance['show_date']);
 		$instance['show_rss'] = strip_tags($new_instance['show_rss']);
 		$instance['soup_cat'] = strip_tags($new_instance['soup_cat']);
 		$instance['post_status'] = strip_tags($new_instance['post_status']);
@@ -132,7 +139,20 @@ class soup_widget extends WP_Widget {
 
 	function form($instance) {
 
-		$defaults = array( 'title' => 'Upcoming Posts', 'soup_number' => 3, 'show_rss' => false, 'soup_cat' => '', 'post_status' => 'future', 'post_types' => 'post', 'post_order' => 'date', 'show_newsletter' => false, 'newsletter_url' => '', 'author_credit' => 'on', 'no_results' => 'Sorry - nothing planned yet!' );
+		$defaults = array(
+			'title' => 'Upcoming Posts',
+			'soup_number' => 3,
+			'show_date' => 'off',
+			'show_rss' => false,
+			'soup_cat' => '',
+			'post_status' => 'future',
+			'post_types' => 'post',
+			'post_order' => 'date',
+			'show_newsletter' => false,
+			'newsletter_url' => '',
+			'no_results' => 'Sorry - nothing planned yet!',
+		);
+
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
@@ -145,7 +165,7 @@ class soup_widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('show_date'); ?>"><?php _e('Show post date', 'soup'); ?>?</label>
-			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['show_date'])); ?> id="<?php echo $this->get_field_id('show_date'); ?>" name="<?php echo $this->get_field_name('show_date'); ?>" />
+			<input <?php checked( $instance['show_date'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" type="checkbox" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('show_rss'); ?>"><?php _e('Show RSS link', 'soup'); ?>?</label>
