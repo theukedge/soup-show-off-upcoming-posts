@@ -144,6 +144,10 @@ class soup_widget extends WP_Widget {
 			<input class="widefat" id="<?php echo $this->get_field_id('soup_number'); ?>" name="<?php echo $this->get_field_name('soup_number'); ?>" type="text" value="<?php echo $instance['soup_number']; ?>" />
 		</p>
 		<p>
+			<label for="<?php echo $this->get_field_id('show_date'); ?>"><?php _e('Show post date', 'soup'); ?>?</label>
+			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['show_date'])); ?> id="<?php echo $this->get_field_id('show_date'); ?>" name="<?php echo $this->get_field_name('show_date'); ?>" />
+		</p>
+		<p>
 			<label for="<?php echo $this->get_field_id('show_rss'); ?>"><?php _e('Show RSS link', 'soup'); ?>?</label>
 			<input type="checkbox" class="checkbox" <?php checked('1', isset ($instance['show_rss'])); ?> id="<?php echo $this->get_field_id('show_rss'); ?>" name="<?php echo $this->get_field_name('show_rss'); ?>" />
 		</p>
