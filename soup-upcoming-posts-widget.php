@@ -7,6 +7,7 @@ Version: 1.10.0
 Author: Dave Clements
 Author URI: https://www.theukedge.com
 License: GPLv2
+Text Domain: soup-show-off-upcoming-posts
 */
 
 /*  Copyright 2015  Dave Clements  (email : https://www.theukedge.com/contact/)
@@ -45,8 +46,8 @@ class soup_widget extends WP_Widget {
 	// Constructor //
 
     function soup_widget() {
-    	load_plugin_textdomain('soup', false, dirname(plugin_basename(__FILE__)) . '/languages/');
-        parent::__construct(false, $name = __('Upcoming Posts', 'soup'), array('description' => __('Displays your upcoming posts to entice your readers', 'soup')) );
+    	load_plugin_textdomain( 'soup-show-off-upcoming-posts' );
+        parent::__construct(false, $name = __('Upcoming Posts', 'soup-show-off-upcoming-posts'), array('description' => __('Displays your upcoming posts to entice your readers', 'soup-show-off-upcoming-posts')) );
     }
 
 	// Extract Args //
@@ -100,16 +101,16 @@ class soup_widget extends WP_Widget {
 
 		<?php if ($showrss) { ?>
 		<p>
-			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>">
-				<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo plugins_url( 'includes/images/rss.png' , __FILE__ ); ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>" />
+			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>">
+				<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo plugins_url( 'includes/images/rss.png' , __FILE__ ); ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>" />
 			</a>
-			<?php _e('Don\'t miss it', 'soup'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup'); ?>.</a></strong>
+			<?php _e('Don\'t miss it', 'soup-show-off-upcoming-posts'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup-show-off-upcoming-posts'); ?>.</a></strong>
 		</p>
 		<?php } ?>
 
 		<?php if ($shownews) { ?>
 		<p>
-			<?php _e('Or, just', 'soup'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a></strong>!
+			<?php _e('Or, just', 'soup-show-off-upcoming-posts'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo ('name'); _e(' newsletter', 'soup-show-off-upcoming-posts'); ?>"><?php _e('subscribe to the newsletter', 'soup-show-off-upcoming-posts'); ?></a></strong>!
 		</p>
 		<?php }
 
@@ -156,54 +157,54 @@ class soup_widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>'" type="text" value="<?php echo $instance['title']; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('soup_number'); ?>"><?php _e('Number of upcoming posts to display', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('soup_number'); ?>"><?php _e('Number of upcoming posts to display', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('soup_number'); ?>" name="<?php echo $this->get_field_name('soup_number'); ?>" type="text" value="<?php echo $instance['soup_number']; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('show_date'); ?>"><?php _e('Show post date', 'soup'); ?>?</label>
+			<label for="<?php echo $this->get_field_id('show_date'); ?>"><?php _e('Show post date', 'soup-show-off-upcoming-posts'); ?>?</label>
 			<input <?php checked( $instance['show_date'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" type="checkbox" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('show_rss'); ?>"><?php _e('Show RSS link', 'soup'); ?>?</label>
+			<label for="<?php echo $this->get_field_id('show_rss'); ?>"><?php _e('Show RSS link', 'soup-show-off-upcoming-posts'); ?>?</label>
 			<input <?php checked( $instance['show_rss'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_rss' ); ?>" name="<?php echo $this->get_field_name( 'show_rss' ); ?>" type="checkbox" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('soup_cat'); ?>"><?php _e('Categories to include (comma separated i.e. 2,19,12 - leave blank for all categories)', 'soup'); ?></label>
+			<label for="<?php echo $this->get_field_id('soup_cat'); ?>"><?php _e('Categories to include (comma separated i.e. 2,19,12 - leave blank for all categories)', 'soup-show-off-upcoming-posts'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('soup_cat'); ?>" name="<?php echo $this->get_field_name('soup_cat'); ?>" type="text" value="<?php echo $instance['soup_cat']; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_status'); ?>"><?php _e('Post status', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('post_status'); ?>"><?php _e('Post status', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<select id="<?php echo $this->get_field_id('post_status'); ?>" name="<?php echo $this->get_field_name('post_status'); ?>" class="widefat" style="width:100%;">
-				<option value="future,draft" <?php selected('future,draft', $instance['post_status']); ?>><?php _e('Both scheduled posts and drafts', 'soup'); ?></option>
-				<option value="future" <?php selected('future', $instance['post_status']); ?>><?php _e('Scheduled posts only', 'soup'); ?></option>
-				<option value="draft" <?php selected('draft', $instance['post_status']); ?>><?php _e('Drafts only', 'soup'); ?></option>
+				<option value="future,draft" <?php selected('future,draft', $instance['post_status']); ?>><?php _e('Both scheduled posts and drafts', 'soup-show-off-upcoming-posts'); ?></option>
+				<option value="future" <?php selected('future', $instance['post_status']); ?>><?php _e('Scheduled posts only', 'soup-show-off-upcoming-posts'); ?></option>
+				<option value="draft" <?php selected('draft', $instance['post_status']); ?>><?php _e('Drafts only', 'soup-show-off-upcoming-posts'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_types'); ?>"><?php _e('Post types to display (comma separated for multiple - e.g. post,page,event)', 'soup'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_types'); ?>"><?php _e('Post types to display (comma separated for multiple - e.g. post,page,event)', 'soup-show-off-upcoming-posts'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('post_types'); ?>" name="<?php echo $this->get_field_name('post_types'); ?>" type="text" value="<?php echo $instance['post_types']; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_order'); ?>"><?php _e('Sort order', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('post_order'); ?>"><?php _e('Sort order', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<select id="<?php echo $this->get_field_id('post_order'); ?>" name="<?php echo $this->get_field_name('post_order'); ?>" class="widefat" style="width:100%;">
-				<option value="date" <?php selected('date', $instance['post_order']); ?>><?php _e('Next post first', 'soup'); ?></option>
-				<option value="rand" <?php selected('rand', $instance['post_order']); ?>><?php _e('Random order', 'soup'); ?></option>
+				<option value="date" <?php selected('date', $instance['post_order']); ?>><?php _e('Next post first', 'soup-show-off-upcoming-posts'); ?></option>
+				<option value="rand" <?php selected('rand', $instance['post_order']); ?>><?php _e('Random order', 'soup-show-off-upcoming-posts'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('no_results'); ?>"><?php _e('Message to display for no results', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('no_results'); ?>"><?php _e('Message to display for no results', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('no_results'); ?>" name="<?php echo $this->get_field_name('no_results'); ?>" type="text" value="<?php echo $instance['no_results']; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('show_newsletter'); ?>"><?php _e('Show Newsletter', 'soup'); ?>?</label>
+			<label for="<?php echo $this->get_field_id('show_newsletter'); ?>"><?php _e('Show Newsletter', 'soup-show-off-upcoming-posts'); ?>?</label>
 			<input <?php checked( $instance['show_newsletter'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_newsletter' ); ?>" name="<?php echo $this->get_field_name( 'show_newsletter' ); ?>" type="checkbox" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('newsletter_url'); ?>"><?php _e('Newsletter URL', 'soup'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('newsletter_url'); ?>"><?php _e('Newsletter URL', 'soup-show-off-upcoming-posts'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('newsletter_url'); ?>" name="<?php echo $this->get_field_name('newsletter_url'); ?>" type="text" value="<?php echo $instance['newsletter_url']; ?>" />
 		</p>
     <?php }
