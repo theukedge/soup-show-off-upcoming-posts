@@ -38,6 +38,17 @@ if ( !defined( 'SOUP_PLUGIN_URL' ) ) {
 }
 
 
+/* ---------------------------------- *
+ * enqueues
+ * ---------------------------------- */
+
+function enqueue_soup_styles() {
+	wp_enqueue_style( 'soup', SOUP_PLUGIN_URL . 'css/soup.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_soup_styles' );
+
+
 // Start class soup_widget //
 
 class soup_widget extends WP_Widget {
@@ -101,15 +112,15 @@ class soup_widget extends WP_Widget {
 		<?php if ($showrss) { ?>
 		<p>
 			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>">
-				<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo SOUP_PLUGIN_URL . 'includes/images/rss.png'; ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>" />
+				<img class="soup-rss-icon" src="<?php echo SOUP_PLUGIN_URL . 'includes/images/rss.png'; ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>" />
 			</a>
-			<?php _e('Don\'t miss it', 'soup'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup'); ?>.</a></strong>
+			<?php _e('Don\'t miss it', 'soup'); ?> - <a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup'); ?>.</a>
 		</p>
 		<?php } ?>
 
 		<?php if ($shownews) { ?>
 		<p>
-			<?php _e('Or, just', 'soup'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a></strong>!
+			<?php _e('Or, just', 'soup'); ?> <a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a>!
 		</p>
 		<?php }
 
