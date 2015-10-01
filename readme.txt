@@ -4,7 +4,7 @@ Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medi
 Tags: upcoming, posts, future, scheduled, widget, sidebar, list, number, title, interest, readers, newsletter, rss feed, feedburner, drafts, soup
 Requires at least: 2.9
 Tested up to: 4.3
-Stable tag: 1.10.0
+Stable tag: 2.0
 License: GPLv2
 
 Displays your upcoming posts in a sidebar widget to tease your readers
@@ -45,6 +45,19 @@ I also run [Do It With WordPress](https://www.doitwithwp.com/?utm_source=wordpre
 
 == Frequently Asked Questions ==
 
+= How do I modify WP_Query to get more specific results =
+
+There is a filter (soup_query) for the [WP_Query](https://codex.wordpress.org/Class_Reference/WP_Query) args, so you can add and modify args as needed to get the result you need.
+
+For example, to limit your results to posts in category 3, you might add something like the function below to your [functionality plugin](https://github.com/theukedge/functionality-plugin):
+
+`function limit_soup( $args ) {
+    $args['cat'] = 3;
+    return $args;
+}
+
+add_filter( 'soup_query', 'limit_soup' );`
+
 = Are there more features planned in future? =
 
 Absolutely. I'll be providing more options and upgrades in the near future. You can stay up to date by following me on [Twitter](http://www.twitter.com/daclements "Dave on Twitter"). If you have an idea for a new feature, you can create a new feature request on [GitHub](https://github.com/theukedge/soup-show-off-upcoming-posts/issues). If you don't have a GitHub account, then [tell me](https://www.theukedge.com/contact/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=contact "Contact The UK Edge") what this widget should do that it doesn't currently.
@@ -63,6 +76,12 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 2. The widget control panel.
 
 == Changelog ==
+
+= 2.0 =
+
+Release date: October 1, 2015
+
+* Refactored query in widget to use WP_Query class. **This will allow for the deprecation of certain settings in the widget in the next release (2.1)**. The intent is to use the soup_query filter instead (see FAQs for example). Settings will be removed in 2.1 and the args will be removed from the query in 2.2.
 
 = 1.10 =
 
@@ -150,6 +169,10 @@ Release date: October 8, 2014
 * Initial version.
 
 == Upgrade Notice ==
+
+= 2.0 =
+* Refactored code to use WP_Query
+* **Breaking change forthcoming. See changelog**
 
 = 1.10 =
 * Added ability to show scheduled post date with post title
