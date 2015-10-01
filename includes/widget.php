@@ -49,7 +49,7 @@ class soup_widget extends WP_Widget {
             'post_type' => $posttypesarray
         );
 
-        $soup_query = new WP_Query( $args );
+        $soup_query = new WP_Query( apply_filters( 'soup_query', $args ) );
 
         if( $soup_query->have_posts() ) { ?>
             <ul class="no-bullets">
