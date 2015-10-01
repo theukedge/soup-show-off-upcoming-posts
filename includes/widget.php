@@ -43,7 +43,18 @@ class soup_widget extends WP_Widget {
 		<?php
 			global $post;
 			$tmp_post = $post;
-			$args = array( 'numberposts' => $soupnumber, 'no_paging' => '1', 'post_status' => $poststatus, 'order' => 'ASC', 'orderby' => $postorder, 'ignore_sticky_posts' => '1', 'category' => $soup_cat, 'post_type' => $posttypesarray );
+            
+			$args = array(
+                'numberposts' => $soupnumber,
+                'no_paging' => '1',
+                'post_status' => $poststatus,
+                'order' => 'ASC',
+                'orderby' => $postorder,
+                'ignore_sticky_posts' => '1',
+                'category' => $soup_cat,
+                'post_type' => $posttypesarray
+            );
+
 			$myposts = get_posts( $args );
 			foreach( $myposts as $post ) : setup_postdata($post); ?>
 				<li>
