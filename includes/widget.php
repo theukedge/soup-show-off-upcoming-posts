@@ -38,36 +38,33 @@ class soup_widget extends WP_Widget {
 
 	// Widget output //
 
-		?>
-		<ul class="no-bullets">
-		<?php
-			global $post;
-			$tmp_post = $post;
+        $args = array(
+            'posts_per_page' => $soupnumber,
+            'no_paging' => '1',
+            'post_status' => $poststatus,
+            'order' => 'ASC',
+            'orderby' => $postorder,
+            'ignore_sticky_posts' => '1',
+            'category' => $soup_cat,
+            'post_type' => $posttypesarray
+        );
 
-			$args = array(
-                'numberposts' => $soupnumber,
-                'no_paging' => '1',
-                'post_status' => $poststatus,
-                'order' => 'ASC',
-                'orderby' => $postorder,
-                'ignore_sticky_posts' => '1',
-                'category' => $soup_cat,
-                'post_type' => $posttypesarray
-            );
+        $soup_query = new WP_Query( $args );
 
-			$soup_query = new WP_Query( $args );
-			foreach( $soup_query as $post ) : setup_postdata($post); ?>
+        if( $soup_query->have_posts() ) { ?>
+            <ul class="no-bullets">
+            <?php while( $soup_query->have_posts() ) {
+                $soup_query->the_post(); ?>
 				<li>
-					<?php the_title(); ?>
-					<?php if($showdate) {
+					<?php the_title();
+					if($showdate) {
 						echo '(' . get_the_time( get_option( 'date_format' ) ) . ')';
 					} ?>
 				</li>
-			<?php endforeach; ?>
-			<?php $post = $tmp_post; ?>
-		</ul>
-
-		<?php if (!$soup_query) {
+			<?php } ?>
+            </ul>
+            <?php wp_reset_postdata();
+        } else {
 			echo $noresults;
 		} ?>
 
