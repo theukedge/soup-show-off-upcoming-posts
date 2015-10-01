@@ -95,9 +95,7 @@ class soup_widget extends WP_Widget {
 		$instance['soup_number'] = strip_tags($new_instance['soup_number']);
 		$instance['show_date'] = strip_tags($new_instance['show_date']);
 		$instance['show_rss'] = strip_tags($new_instance['show_rss']);
-		$instance['soup_cat'] = strip_tags($new_instance['soup_cat']);
 		$instance['post_status'] = strip_tags($new_instance['post_status']);
-		$instance['post_types'] = strip_tags($new_instance['post_types']);
 		$instance['post_order'] = strip_tags($new_instance['post_order']);
 		$instance['show_newsletter'] = strip_tags($new_instance['show_newsletter']);
 		$instance['newsletter_url'] = strip_tags($new_instance['newsletter_url'],'<a>');
@@ -114,9 +112,7 @@ class soup_widget extends WP_Widget {
 			'soup_number' => 3,
 			'show_date' => 'off',
 			'show_rss' => 'off',
-			'soup_cat' => '',
 			'post_status' => 'future',
-			'post_types' => 'post',
 			'post_order' => 'date',
 			'show_newsletter' => 'off',
 			'newsletter_url' => '',
@@ -142,20 +138,12 @@ class soup_widget extends WP_Widget {
 			<input <?php checked( $instance['show_rss'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_rss' ); ?>" name="<?php echo $this->get_field_name( 'show_rss' ); ?>" type="checkbox" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('soup_cat'); ?>"><?php _e('Categories to include (comma separated i.e. 2,19,12 - leave blank for all categories)', 'soup'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('soup_cat'); ?>" name="<?php echo $this->get_field_name('soup_cat'); ?>" type="text" value="<?php echo $instance['soup_cat']; ?>" />
-		</p>
-		<p>
 			<label for="<?php echo $this->get_field_id('post_status'); ?>"><?php _e('Post status', 'soup'); ?>:</label>
 			<select id="<?php echo $this->get_field_id('post_status'); ?>" name="<?php echo $this->get_field_name('post_status'); ?>" class="widefat" style="width:100%;">
 				<option value="future,draft" <?php selected('future,draft', $instance['post_status']); ?>><?php _e('Both scheduled posts and drafts', 'soup'); ?></option>
 				<option value="future" <?php selected('future', $instance['post_status']); ?>><?php _e('Scheduled posts only', 'soup'); ?></option>
 				<option value="draft" <?php selected('draft', $instance['post_status']); ?>><?php _e('Drafts only', 'soup'); ?></option>
 			</select>
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('post_types'); ?>"><?php _e('Post types to display (comma separated for multiple - e.g. post,page,event)', 'soup'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('post_types'); ?>" name="<?php echo $this->get_field_name('post_types'); ?>" type="text" value="<?php echo $instance['post_types']; ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('post_order'); ?>"><?php _e('Sort order', 'soup'); ?>:</label>
