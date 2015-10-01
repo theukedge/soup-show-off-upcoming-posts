@@ -43,7 +43,7 @@ class soup_widget extends WP_Widget {
 		<?php
 			global $post;
 			$tmp_post = $post;
-            
+
 			$args = array(
                 'numberposts' => $soupnumber,
                 'no_paging' => '1',
@@ -55,8 +55,8 @@ class soup_widget extends WP_Widget {
                 'post_type' => $posttypesarray
             );
 
-			$myposts = get_posts( $args );
-			foreach( $myposts as $post ) : setup_postdata($post); ?>
+			$soup_query = new WP_Query( $args );
+			foreach( $soup_query as $post ) : setup_postdata($post); ?>
 				<li>
 					<?php the_title(); ?>
 					<?php if($showdate) {
@@ -67,7 +67,7 @@ class soup_widget extends WP_Widget {
 			<?php $post = $tmp_post; ?>
 		</ul>
 
-		<?php if (!$myposts) {
+		<?php if (!$soup_query) {
 			echo $noresults;
 		} ?>
 
