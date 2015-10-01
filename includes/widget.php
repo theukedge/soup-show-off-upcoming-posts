@@ -58,7 +58,7 @@ class soup_widget extends WP_Widget {
 				<li>
 					<?php the_title();
 					if($showdate) {
-						echo '(' . get_the_time( get_option( 'date_format' ) ) . ')';
+						echo ' (' . get_the_time( get_option( 'date_format' ) ) . ')';
 					} ?>
 				</li>
 			<?php } ?>
