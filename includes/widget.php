@@ -45,7 +45,7 @@ class soup_widget extends WP_Widget {
             'order' => 'ASC',
             'orderby' => $postorder,
             'ignore_sticky_posts' => '1',
-            'category' => $soup_cat,
+            'cat' => $soup_cat,
             'post_type' => $posttypesarray
         );
 
