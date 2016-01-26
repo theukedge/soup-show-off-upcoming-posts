@@ -3,8 +3,8 @@ Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
 Tags: upcoming, posts, future, scheduled, widget, sidebar, list, number, title, interest, readers, newsletter, rss feed, feedburner, drafts, soup
 Requires at least: 2.9
-Tested up to: 4.3
-Stable tag: 2.0
+Tested up to: 4.4.1
+Stable tag: 2.1
 License: GPLv2
 
 Displays your upcoming posts in a sidebar widget to tease your readers
@@ -22,9 +22,6 @@ Here are the configurable options for the widget:
 * Title of sidebar widget
 * Number of upcoming posts to display (always in ascending order - newest first)
 * Choose whether to show date of upcoming post
-* Which categories to display posts from
-* Choose whether to show scheduled posts, drafts, or both.
-* Choose which post types to include
 * Display order of the posts (next post first or random order)
 * Message to display for when there are no scheduled posts or drafts
 * Show/hide newsletter link
@@ -76,6 +73,12 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 2. The widget control panel.
 
 == Changelog ==
+
+= 2.1 =
+
+Release date: January 26, 2016
+
+* Removed settings for category, post status and post types from the widget control panel. **To modify the category, post status or post types that SOUP displays, you now need to use the filter provided.** See the [FAQ tab](https://wordpress.org/plugins/soup-show-off-upcoming-posts/faq/) for details on how to use this, or [file a support ticket](https://wordpress.org/support/plugin/soup-show-off-upcoming-posts).
 
 = 2.0 =
 
@@ -169,6 +172,10 @@ Release date: October 8, 2014
 * Initial version.
 
 == Upgrade Notice ==
+
+= 2.1 =
+* Removed settings for category, post types and post status from widget settings in favour of filter.
+* **Breaking changes included and more forthcoming. See changelog**
 
 = 2.0 =
 * Refactored code to use WP_Query
