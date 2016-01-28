@@ -19,10 +19,6 @@ class soup_widget extends WP_Widget {
 		$soupnumber		= $instance['soup_number']; // the number of posts to show
 		$showdate		= $instance['show_date']; // whether or not to show the scheduled post date
 		$showrss		= $instance['show_rss']; // whether or not to show the RSS feed link
-		$soup_cat		= isset( $instance['soup_cat'] ) ? $instance['soup_cat'] : ''; // exclude posts from these categories
-		$poststatus		= isset( $instance['post_status'] ) ? $instance['post_status'] : 'future'; // the statuses of posts to show
-		$posttypes		= isset( $instance['post_types'] ) ? $instance['post_types'] : 'post'; // the type of posts to show
-		$posttypesarray	= explode(',', $posttypes); // array of post types
 		$postorder		= $instance['post_order']; // Display newest first or random order
 		$shownews		= isset($instance['show_newsletter']) ? $instance['show_newsletter'] : false ; // whether or not to show the newsletter link
 		$newsletterurl	= $instance['newsletter_url']; // URL of newsletter signup
@@ -41,12 +37,10 @@ class soup_widget extends WP_Widget {
         $args = array(
             'posts_per_page' => $soupnumber,
             'no_paging' => '1',
-            'post_status' => $poststatus,
+            'post_status' => 'future',
             'order' => 'ASC',
             'orderby' => $postorder,
             'ignore_sticky_posts' => '1',
-            'cat' => $soup_cat,
-            'post_type' => $posttypesarray
         );
 
         $soup_query = new WP_Query( apply_filters( 'soup_query', $args ) );
