@@ -9,4 +9,4 @@ SOUP creates a widget in your sidebar which allows you to display your upcoming 
 If you find an issue, let me know [here](https://github.com/theukedge/soup-show-off-upcoming-posts/issues/new).
 
 ## Contributions ##
-I openly welcome community contributions, including bug fixes, new features and translations. Please feel free to [fork the project](https://github.com/theukedge/soup-show-off-upcoming-posts/fork) and submit a pull request.
+I openly welcome community contributions, including bug fixes and new features. Please feel free to [fork the project](https://github.com/theukedge/soup-show-off-upcoming-posts/fork) and submit a pull request.

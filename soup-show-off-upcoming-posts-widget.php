@@ -7,6 +7,7 @@ Version: 2.1
 Author: Dave Clements
 Author URI: https://www.theukedge.com
 License: GPLv2
+Text domain: soup-show-off-upcoming-posts
 */
 
 /*  Copyright 2016  Dave Clements  (email : https://www.theukedge.com/contact/)
