@@ -64,27 +64,16 @@ class soup_widget extends WP_Widget {
 
 		<?php if ($showrss) { ?>
 		<p>
-<<<<<<< HEAD:includes/widget.php
-			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>">
-				<img class="soup-rss-icon" src="<?php echo SOUP_PLUGIN_URL . 'images/rss.png'; ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>" />
-			</a>
-			<?php _e('Don\'t miss it', 'soup'); ?> - <a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup'); ?>.</a>
-=======
 			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>">
 				<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo plugins_url( 'includes/images/rss.png' , __FILE__ ); ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>" />
 			</a>
 			<?php _e('Don\'t miss it', 'soup-show-off-upcoming-posts'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup-show-off-upcoming-posts'); ?>.</a></strong>
->>>>>>> issue/10:soup-upcoming-posts-widget.php
 		</p>
 		<?php } ?>
 
 		<?php if ($shownews) { ?>
 		<p>
-<<<<<<< HEAD:includes/widget.php
-			<?php _e('Or, just', 'soup'); ?> <a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup'); bloginfo ('name'); _e(' newsletter', 'soup'); ?>"><?php _e('subscribe to the newsletter', 'soup'); ?></a>!
-=======
 			<?php _e('Or, just', 'soup-show-off-upcoming-posts'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo ('name'); _e(' newsletter', 'soup-show-off-upcoming-posts'); ?>"><?php _e('subscribe to the newsletter', 'soup-show-off-upcoming-posts'); ?></a></strong>!
->>>>>>> issue/10:soup-upcoming-posts-widget.php
 		</p>
 		<?php }
 
@@ -141,27 +130,7 @@ class soup_widget extends WP_Widget {
 			<input <?php checked( $instance['show_rss'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_rss' ); ?>" name="<?php echo $this->get_field_name( 'show_rss' ); ?>" type="checkbox" />
 		</p>
 		<p>
-<<<<<<< HEAD:includes/widget.php
-			<label for="<?php echo $this->get_field_id('post_order'); ?>"><?php _e('Sort order', 'soup'); ?>:</label>
-=======
-			<label for="<?php echo $this->get_field_id('soup_cat'); ?>"><?php _e('Categories to include (comma separated i.e. 2,19,12 - leave blank for all categories)', 'soup-show-off-upcoming-posts'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('soup_cat'); ?>" name="<?php echo $this->get_field_name('soup_cat'); ?>" type="text" value="<?php echo $instance['soup_cat']; ?>" />
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('post_status'); ?>"><?php _e('Post status', 'soup-show-off-upcoming-posts'); ?>:</label>
-			<select id="<?php echo $this->get_field_id('post_status'); ?>" name="<?php echo $this->get_field_name('post_status'); ?>" class="widefat" style="width:100%;">
-				<option value="future,draft" <?php selected('future,draft', $instance['post_status']); ?>><?php _e('Both scheduled posts and drafts', 'soup-show-off-upcoming-posts'); ?></option>
-				<option value="future" <?php selected('future', $instance['post_status']); ?>><?php _e('Scheduled posts only', 'soup-show-off-upcoming-posts'); ?></option>
-				<option value="draft" <?php selected('draft', $instance['post_status']); ?>><?php _e('Drafts only', 'soup-show-off-upcoming-posts'); ?></option>
-			</select>
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('post_types'); ?>"><?php _e('Post types to display (comma separated for multiple - e.g. post,page,event)', 'soup-show-off-upcoming-posts'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('post_types'); ?>" name="<?php echo $this->get_field_name('post_types'); ?>" type="text" value="<?php echo $instance['post_types']; ?>" />
-		</p>
-		<p>
 			<label for="<?php echo $this->get_field_id('post_order'); ?>"><?php _e('Sort order', 'soup-show-off-upcoming-posts'); ?>:</label>
->>>>>>> issue/10:soup-upcoming-posts-widget.php
 			<select id="<?php echo $this->get_field_id('post_order'); ?>" name="<?php echo $this->get_field_name('post_order'); ?>" class="widefat" style="width:100%;">
 				<option value="date" <?php selected('date', $instance['post_order']); ?>><?php _e('Next post first', 'soup-show-off-upcoming-posts'); ?></option>
 				<option value="rand" <?php selected('rand', $instance['post_order']); ?>><?php _e('Random order', 'soup-show-off-upcoming-posts'); ?></option>
