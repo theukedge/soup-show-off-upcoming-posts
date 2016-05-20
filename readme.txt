@@ -3,8 +3,8 @@ Contributors: thewanderingbrit
 Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medium=plugin&utm_campaign=donate
 Tags: upcoming, posts, future, scheduled, widget, sidebar, list, number, title, interest, readers, newsletter, rss feed, feedburner, drafts, soup
 Requires at least: 2.9
-Tested up to: 4.4.1
-Stable tag: 2.1
+Tested up to: 4.5.2
+Stable tag: 2.2
 License: GPLv2
 
 Displays your upcoming posts in a sidebar widget to tease your readers
@@ -44,7 +44,7 @@ I also run [Do It With WordPress](https://www.doitwithwp.com/?utm_source=wordpre
 
 = How do I modify WP_Query to get more specific results =
 
-There is a filter (soup_query) for the [WP_Query](https://codex.wordpress.org/Class_Reference/WP_Query) args, so you can add and modify args as needed to get the result you need.
+There is a filter (`soup_query`) for the [WP_Query](https://codex.wordpress.org/Class_Reference/WP_Query) args, so you can add and modify args as needed to get the result you need.
 
 For example, to limit your results to posts in category 3, you might add something like the function below to your [functionality plugin](https://github.com/theukedge/functionality-plugin):
 
@@ -74,6 +74,13 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
+= 2.2 =
+
+Release date: May 20, 2016
+
+* **Breaking change**: args for category, post status and post type removed from WP_Query. If you wish to continue using these, you need to use the `soup_query` filter. See the [FAQ tab](https://wordpress.org/plugins/soup-show-off-upcoming-posts/faq/) for details on how to use this.
+* Added support for wordpress.org language packs
+
 = 2.1 =
 
 Release date: January 26, 2016
@@ -86,92 +93,12 @@ Release date: October 1, 2015
 
 * Refactored query in widget to use WP_Query class. **This will allow for the deprecation of certain settings in the widget in the next release (2.1)**. The intent is to use the soup_query filter instead (see FAQs for example). Settings will be removed in 2.1 and the args will be removed from the query in 2.2.
 
-= 1.10 =
-
-Release date: August 29, 2015
-
-* Added ability to show date of upcoming posts next to post title
-
-= 1.9 =
-
-Release date: August 13, 2015
-
-* Added ability to show upcoming posts for multiple post types, including custom post types
-
-= 1.8 =
-
-Release date: August 12, 2015
-
-* Updated PHP constructor methods to remove deprecated methods
-* Remove author credit
-
-= 1.7.2 =
-
-Release date: October 21, 2014
-
-* Added Spanish translation - props to Andrew Kurtis
-* Correct versioning mistakes in 1.7.1
-
-= 1.7.1 =
-
-Release date: October 21, 2014
-
-* Added Spanish translation - props to Andrew Kurtis
-
-= 1.7 =
-
-Release date: October 8, 2014
-
-* Added option to enable/disable RSS link
-* Minor bug fixes
-
-= 1.6.3 =
-* Made final preparations for localization. Translators: please send me your translations.
-
-= 1.6.2 =
-* Fixed fatal error during plugin activation.
-
-= 1.6.1 =
-* Readied plugin for internationalization, including loading translation files, when they're available.
-* Minor bugfixes.
-
-= 1.6 =
-* Added ability to filter posts by category, so that you can be specific about the particular categories you want to show posts from.
-* Audited and tidied up the code.
-* Prepared plugin for full internationalization - please send translations if you have some.
-
-= 1.5.1 =
-* Modified database query to exclude sticky posts, which were showing up no matter what options you set.
-
-= 1.5 =
-* Added option (and default setting) to configure message that is displayed if there are no posts matching your settings.
-
-= 1.4 =
-* Added option to change display order of posts (random, or next post first)
-
-= 1.3.3 =
-* Fixed bad image link for RSS icon.
-
-= 1.3.2 =
-* Added option to give plugin author credit
-
-= 1.3.1 =
-* Minor updates
-
-= 1.3 =
-* Included option to display either drafts, scheduled posts, or both.
-
-= 1.2 =
-* Included option to display URL to newsletter signup.
-* Revised and tidied up code
-
-= 1.1 =
-* Made changes to include cross-compatibility for different sites.
-
-= 1.0 =
-* Initial version.
-
 == Upgrade Notice ==
+
+= 2.2 =
+* **Breaking changes included**. See changelog for more details.
+* Removed args for category, post types and post status from WP_Query.
+* Prepared for use of wordpress.org language packs.
 
 = 2.1 =
 * Removed settings for category, post types and post status from widget settings in favour of filter.
