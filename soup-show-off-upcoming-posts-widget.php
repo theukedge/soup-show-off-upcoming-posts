@@ -3,7 +3,7 @@
  * Plugin Name: SOUP - Show Off Upcoming Posts
  * Plugin URI: https://github.com/theukedge/soup-show-off-upcoming-posts
  * Description: Displays your upcoming posts to tease your readers
- * Version: 2.2
+ * Version: 2.2.0
  * Author: Dave Clements
  * Author URI: https://www.theukedge.com
  * License: GPLv2
@@ -11,7 +11,7 @@
  *
  * @package SOUP
  * @author Dave Clements
- * @version 2.2
+ * @version 2.2.0
  */
 
 /*  Copyright 2016  Dave Clements  (email : https://www.theukedge.com/contact/)

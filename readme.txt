@@ -4,7 +4,7 @@ Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medi
 Tags: upcoming, posts, future, scheduled, widget, sidebar, list, number, title, interest, readers, newsletter, rss feed, feedburner, drafts, soup
 Requires at least: 2.9
 Tested up to: 4.5.2
-Stable tag: 2.2
+Stable tag: 2.2.0
 License: GPLv2
 
 Displays your upcoming posts in a sidebar widget to tease your readers
@@ -74,7 +74,7 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
-= 2.2 =
+= 2.2.0 =
 
 Release date: May 20, 2016
 
@@ -91,11 +91,11 @@ Release date: January 26, 2016
 
 Release date: October 1, 2015
 
-* Refactored query in widget to use WP_Query class. **This will allow for the deprecation of certain settings in the widget in the next release (2.1)**. The intent is to use the soup_query filter instead (see FAQs for example). Settings will be removed in 2.1 and the args will be removed from the query in 2.2.
+* Refactored query in widget to use WP_Query class. **This will allow for the deprecation of certain settings in the widget in the next release (2.1)**. The intent is to use the soup_query filter instead (see FAQs for example). Settings will be removed in 2.1 and the args will be removed from the query in 2.2.0.
 
 == Upgrade Notice ==
 
-= 2.2 =
+= 2.2.0 =
 * **Breaking changes included**. See changelog for more details.
 * Removed args for category, post types and post status from WP_Query.
 * Prepared for use of wordpress.org language packs.
