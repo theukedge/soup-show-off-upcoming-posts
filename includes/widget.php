@@ -64,16 +64,27 @@ class soup_widget extends WP_Widget {
 
 		<?php if ($showrss) { ?>
 		<p>
-			<a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>">
-				<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo plugins_url( 'includes/images/rss.png' , __FILE__ ); ?>" width="16px" height="16px" alt="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>" />
-			</a>
-			<?php _e('Don\'t miss it', 'soup-show-off-upcoming-posts'); ?> - <strong><a href="<?php bloginfo('rss2_url') ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo('name'); ?>"><?php _e('Subscribe by RSS', 'soup-show-off-upcoming-posts'); ?>.</a></strong>
+			<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo SOUP_PLUGIN_URL . '/images/rss.png'; ?>" width="16px" height="16px" alt="<?php printf( __( 'Subscribe to %s', 'soup-show-off-upcoming-posts'), get_bloginfo('name') ); ?>" />
+			<?php printf(
+				__( 'Don\'t miss it - <strong><a href="%1$s" title="%2$s">Subscribe by RSS</a></strong>', 'soup-show-off-upcoming-posts'),
+				get_bloginfo('rss2_url'),
+				sprintf( __( 'Subscribe to %s', 'soup-show-off-upcoming-posts' ),
+					get_bloginfo('name')
+				)
+			); ?>
 		</p>
 		<?php } ?>
 
 		<?php if ($shownews) { ?>
 		<p>
-			<?php _e('Or, just', 'soup-show-off-upcoming-posts'); ?> <strong><a href="<?php echo $newsletterurl; ?>" title="<?php _e('Subscribe to ', 'soup-show-off-upcoming-posts'); bloginfo ('name'); _e(' newsletter', 'soup-show-off-upcoming-posts'); ?>"><?php _e('subscribe to the newsletter', 'soup-show-off-upcoming-posts'); ?></a></strong>!
+			<?php printf(
+				__( 'Or just <strong><a href="%1$s" title="%2$s">subscribe to the newsletter</a></strong>', 'soup-show-off-upcoming-posts'),
+				$newsletterurl,
+				sprintf(
+					__('Subscribe to %s newsletter', 'soup-show-off-upcoming-posts'),
+					get_bloginfo ( 'name' )
+				)
+			); ?>
 		</p>
 		<?php }
 
@@ -101,14 +112,14 @@ class soup_widget extends WP_Widget {
 	function form($instance) {
 
 		$defaults = array(
-			'title' => 'Upcoming Posts',
+			'title' => __('Upcoming Posts', 'soup-show-off-upcoming-posts'),
 			'soup_number' => 3,
 			'show_date' => 'off',
 			'show_rss' => 'off',
 			'post_order' => 'date',
 			'show_newsletter' => 'off',
 			'newsletter_url' => '',
-			'no_results' => 'Sorry - nothing planned yet!',
+			'no_results' => __('Sorry - nothing planned yet!', 'soup-show-off-upcoming-posts'),
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
