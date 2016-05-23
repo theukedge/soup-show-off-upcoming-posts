@@ -48,4 +48,3 @@ if ( !defined( 'SOUP_PLUGIN_URL' ) ) {
  * ---------------------------------- */
 
 include( SOUP_PLUGIN_DIR . 'includes/widget.php' );
-include( SOUP_PLUGIN_DIR . 'includes/enqueues.php' );
