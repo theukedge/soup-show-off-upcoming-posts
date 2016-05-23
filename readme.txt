@@ -4,7 +4,7 @@ Donate link: https://www.theukedge.com/donate/?utm_source=wordpress.org&utm_medi
 Tags: upcoming, posts, future, scheduled, widget, sidebar, list, number, title, interest, readers, newsletter, rss feed, feedburner, drafts, soup
 Requires at least: 3.8
 Tested up to: 4.5.2
-Stable tag: 2.2.1
+Stable tag: 2.3
 License: GPLv2
 
 Displays your upcoming posts in a sidebar widget to tease your readers
@@ -74,6 +74,15 @@ The best thing to do is to submit an issue on [GitHub](https://github.com/theuke
 
 == Changelog ==
 
+= 2.3 =
+
+Release date: May 23, 2016
+
+* **Breaking changes for sites using < v2.2.1** See changelog for changes in previous versions.
+* Improve coding standards
+* Properly implemented i18n
+* Removed RSS icon image and replaced with dashicon
+
 = 2.2.1 =
 
 Release date: May 20, 2016
@@ -95,6 +104,10 @@ Release date: October 1, 2015
 
 == Upgrade Notice ==
 
+= 2.3 =
+* **Breaking changes for sites using < v2.2.1** See changelog for changes in previous versions.
+* Coding standards and translation improvements.
+
 = 2.2.1 =
 * **Breaking changes included**. See changelog for more details.
 * Removed args for category, post types and post status from WP_Query.
@@ -107,62 +120,3 @@ Release date: October 1, 2015
 = 2.0 =
 * Refactored code to use WP_Query
 * **Breaking change forthcoming. See changelog**
-
-= 1.10 =
-* Added ability to show scheduled post date with post title
-
-= 1.9 =
-* Added ability to include multiple/custom post types
-
-= 1.8 =
-* Updated coding standards
-* Remove author credit
-
-= 1.7.2 =
-* Added Spanish translation - props to Andrew Kurtis
-* Correct versioning mistakes in 1.7.1
-
-= 1.7.1 =
-* Added Spanish translation (es_ES) thanks to Andrew Kurtis.
-
-= 1.7 =
-* Added option to enable/disable RSS link. Minor bug fixes.
-
-= 1.6.3 =
-* Made final adjustments for localization.
-
-= 1.6.2 =
-* Fixed fatal error during upgrade and activation.
-
-= 1.6.1 =
-* Minor bug fixes and further localization tweaks.
-
-= 1.6 =
-* Add ability to set posts by category, cleaned up code and prepared widget for complete localization.
-
-= 1.5.1 =
-* Removed sticky posts from showing up in widget.
-
-= 1.5 =
-* Added configurable message for when there are no posts to display
-
-= 1.4 =
-* Added option to change display order of posts (random or next post first)
-
-= 1.3.3 =
-* Adds link to newsletter and provides choice to display drafts, scheduled posts, or both. Included option to give plugin author credit. Fixed incorrect image reference.
-
-= 1.3.2 =
-* Adds link to newsletter and provides choice to display drafts, scheduled posts, or both. Included option to give plugin author credit.
-
-= 1.3.1 =
-* Adds link to newsletter and provides choice to display drafts, scheduled posts, or both.
-
-= 1.3 =
-* Adds link to newsletter and provides choice to display drafts, scheduled posts, or both.
-
-= 1.2 =
-* Adds the ability to also send readers to your newsletter signup page to subscribe to future updates.
-
-= 1.1 =
-Initial version for other sites.
