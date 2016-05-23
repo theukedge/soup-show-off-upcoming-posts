@@ -64,7 +64,7 @@ class soup_widget extends WP_Widget {
 
 		<?php if ($showrss) { ?>
 		<p>
-			<img style="vertical-align:middle; margin:0 10px 0 0;" src="<?php echo SOUP_PLUGIN_URL . '/images/rss.png'; ?>" width="16px" height="16px" alt="<?php printf( __( 'Subscribe to %s', 'soup-show-off-upcoming-posts'), get_bloginfo('name') ); ?>" />
+			<span class="dashicons dashicons-rss"></span>
 			<?php printf(
 				__( 'Don\'t miss it - <strong><a href="%1$s" title="%2$s">Subscribe by RSS</a></strong>', 'soup-show-off-upcoming-posts'),
 				get_bloginfo('rss2_url'),
