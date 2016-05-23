@@ -14,7 +14,8 @@
  * @version 2.2.1
  */
 
-/*  Copyright 2016  Dave Clements  (email : https://www.theukedge.com/contact/)
+/*
+	Copyright 2016  Dave Clements  (email : https://www.theukedge.com/contact/)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -30,21 +31,25 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/* ---------------------------------- *
+/*
+ * ---------------------------------- *
  * constants
- * ---------------------------------- */
+ * ---------------------------------- *
+*/
 
-if ( !defined( 'SOUP_PLUGIN_DIR' ) ) {
+if ( ! defined( 'SOUP_PLUGIN_DIR' ) ) {
 	define( 'SOUP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
 
-if ( !defined( 'SOUP_PLUGIN_URL' ) ) {
+if ( ! defined( 'SOUP_PLUGIN_URL' ) ) {
 	define( 'SOUP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
 
-/* ---------------------------------- *
+/*
+ * ---------------------------------- *
  * includes
- * ---------------------------------- */
+ * ---------------------------------- *
+*/
 
 include( SOUP_PLUGIN_DIR . 'includes/widget.php' );
